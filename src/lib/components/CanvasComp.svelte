@@ -1,33 +1,24 @@
 <script>
-	import { Canvas, InteractiveObject, OrbitControls, Three } from '@threlte/core';
+	//import { Canvas, InteractiveObject, OrbitControls, Three } from '@threlte/core';
+	import { Canvas, InteractiveObject, OrbitControls, T } from '@threlte/core'
 	import { spring } from 'svelte/motion';
-	import {
-		AmbientLight,
-		BoxGeometry,
-		CircleGeometry,
-		DirectionalLight,
-		Group,
-		Mesh,
-		MeshStandardMaterial,
-		PerspectiveCamera
-	} from 'three';
 	import { degToRad } from 'three/src/math/MathUtils';
-
+	
 	const scale = spring(1);
 </script>
 
 <Canvas>
-	<Three type={PerspectiveCamera} makeDefault position={[10, 10, 10]} fov={24}>
+	<T.PerspectiveCamera makeDefault position={[10, 10, 10]} fov={24}>
 		<OrbitControls maxPolarAngle={degToRad(80)} enableZoom={false} target={{ y: 0.5 }} />
-	</Three>
+	</T.PerspectiveCamera>
 
-	<Three type={DirectionalLight} castShadow position={[3, 10, 10]} />
-	<Three type={DirectionalLight} position={[-3, 10, -10]} intensity={0.2} />
-	<Three type={AmbientLight} intensity={0.2} />
+	<T.DirectionalLight castShadow position={[3, 10, 10]} />
+	<T.DirectionalLight position={[-3, 10, -10]} intensity={0.2} />
+	<T.AmbientLight intensity={0.2} />
 
 	<!-- Cube -->
-	<Three type={Group} scale={$scale}>
-		<Three type={Mesh} position.y={0.5} castShadow let:ref>
+	<T.Group scale={$scale}>
+		<T.Mesh position.y={0.5} castShadow let:ref>
 			<!-- Add interaction -->
 			<InteractiveObject
 				object={ref}
@@ -36,14 +27,14 @@
 				on:pointerleave={() => ($scale = 1)}
 			/>
 
-			<Three type={BoxGeometry} />
-			<Three type={MeshStandardMaterial} color="#333333" />
-		</Three>
-	</Three>
+			<T.BoxGeometry />
+			<T.MeshStandardMaterial color="#333333" />
+		</T.Mesh>
+	</T.Group>
 
 	<!-- Floor -->
-	<Three type={Mesh} receiveShadow rotation.x={degToRad(-90)}>
-		<Three type={CircleGeometry} args={[3, 72]} />
-		<Three type={MeshStandardMaterial} color="white" />
-	</Three>
+	<T.Mesh receiveShadow rotation.x={degToRad(-90)}>
+		<T.CircleGeometry args={[3, 72]} />
+		<T.MeshStandardMaterial color="white" />
+	</T.Mesh>
 </Canvas>

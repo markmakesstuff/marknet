@@ -3,15 +3,14 @@
 @tailwind utilities;
 
 @layer utilities {
-    .hudL-MD{
-        transform: rotate(-90deg);
+	.hudL-MD {
+		transform: rotate(-90deg);
 		transform-origin: bottom left;
-        margin-left: 48px;
-    }
-    .hudL-SM{
-        transform: rotate(-90deg);
+		margin-left: 48px;
+	}
+	.hudL-SM {
+		transform: rotate(-90deg);
 		transform-origin: bottom left;
-        margin-left: 35px;
-    }
-
+		margin-left: 35px;
+	}
 }
