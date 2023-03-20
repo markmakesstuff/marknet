@@ -1,40 +1,35 @@
 <script>
-	//import { Canvas, InteractiveObject, OrbitControls, Three } from '@threlte/core';
-	import { Canvas, InteractiveObject, OrbitControls, T } from '@threlte/core'
-	import { spring } from 'svelte/motion';
-	import { degToRad } from 'three/src/math/MathUtils';
-	
-	const scale = spring(1);
+import { T, useFrame, Canvas } from '@threlte/core'
+  import { interactivity } from '@threlte/extras'
+  import { spring } from 'svelte/motion'
+
+  interactivity()
+  const scale = spring(1)
+  let rotation = 0
+  useFrame((state, delta) => {
+    rotation += delta
+  })
 </script>
 
 <Canvas>
-	<T.PerspectiveCamera makeDefault position={[10, 10, 10]} fov={24}>
-		<OrbitControls maxPolarAngle={degToRad(80)} enableZoom={false} target={{ y: 0.5 }} />
-	</T.PerspectiveCamera>
+	<T.PerspectiveCamera
+  makeDefault
+  position={[10, 10, 10]}
+  on:create={({ ref }) => {
+    ref.lookAt(0, 1, 0)
+  }}
+/>
 
-	<T.DirectionalLight castShadow position={[3, 10, 10]} />
-	<T.DirectionalLight position={[-3, 10, -10]} intensity={0.2} />
-	<T.AmbientLight intensity={0.2} />
+<T.DirectionalLight position={[3, 10, 7]} />
 
-	<!-- Cube -->
-	<T.Group scale={$scale}>
-		<T.Mesh position.y={0.5} castShadow let:ref>
-			<!-- Add interaction -->
-			<InteractiveObject
-				object={ref}
-				interactive
-				on:pointerenter={() => ($scale = 2)}
-				on:pointerleave={() => ($scale = 1)}
-			/>
-
-			<T.BoxGeometry />
-			<T.MeshStandardMaterial color="#333333" />
-		</T.Mesh>
-	</T.Group>
-
-	<!-- Floor -->
-	<T.Mesh receiveShadow rotation.x={degToRad(-90)}>
-		<T.CircleGeometry args={[3, 72]} />
-		<T.MeshStandardMaterial color="white" />
-	</T.Mesh>
+<T.Mesh
+  rotation.y={rotation}
+  position.y={1}
+  scale={$scale}
+  on:pointerenter={() => scale.set(1.5)}
+  on:pointerleave={() => scale.set(1)}
+>
+  <T.BoxGeometry args={[1, 2, 1]} />
+  <T.MeshStandardMaterial color="hotpink" />
+</T.Mesh>
 </Canvas>
