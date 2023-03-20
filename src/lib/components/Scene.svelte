@@ -1,5 +1,5 @@
 <script>
-import { T, useFrame, Canvas } from '@threlte/core'
+  import { T, useFrame } from '@threlte/core'
   import { interactivity } from '@threlte/extras'
   import { spring } from 'svelte/motion'
 
@@ -11,7 +11,7 @@ import { T, useFrame, Canvas } from '@threlte/core'
   })
 </script>
 
-<Canvas>
+
 	<T.PerspectiveCamera
   makeDefault
   position={[10, 10, 10]}
@@ -30,6 +30,6 @@ import { T, useFrame, Canvas } from '@threlte/core'
   on:pointerleave={() => scale.set(1)}
 >
   <T.BoxGeometry args={[1, 2, 1]} />
-  <T.MeshStandardMaterial color="hotpink" />
+  <T.MeshStandardMaterial color="grey" />
 </T.Mesh>
-</Canvas>
+

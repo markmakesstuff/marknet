@@ -1,5 +1,6 @@
 <script>
-	import CanvasComp from '$lib/components/CanvasComp.svelte';
+	import { Canvas } from '@threlte/core'
+	import Scene from '$lib/components/Scene.svelte';
 	import LeftHUD from '$lib/components/LeftHUD.svelte';
 	import Nav from '$lib/components/Nav.svelte';
 	import { page } from '$app/stores';
@@ -32,7 +33,9 @@
 
 <div class="canvas-container flex justify-between py-20 px-0 h-screen ">
 	<div class="w-full">
-		<CanvasComp />
+		<Canvas>
+			<Scene />
+		</Canvas>	
 	</div>
 </div>
 

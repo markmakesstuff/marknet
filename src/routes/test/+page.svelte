@@ -1,5 +1,5 @@
 <script>
-	import CanvasComp from '$lib/components/CanvasComp.svelte';
+	import CanvasComp from '$lib/components/Scene.svelte';
 
 	// your script goes here
 </script>
