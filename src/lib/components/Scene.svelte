@@ -7,7 +7,7 @@
   const scale = spring(1)
   let rotation = 0
   useFrame((state, delta) => {
-    rotation += delta
+    rotation += delta*0.5
   })
 </script>
 
@@ -25,11 +25,11 @@
 <T.Mesh
   rotation.y={rotation}
   position.y={1}
-  scale={$scale}
+  scale={3*$scale}
   on:pointerenter={() => scale.set(1.5)}
   on:pointerleave={() => scale.set(1)}
 >
-  <T.BoxGeometry args={[1, 2, 1]} />
+  <T.SphereGeometry args={[1.5,10,10]} />
   <T.MeshStandardMaterial color="grey" />
 </T.Mesh>
 

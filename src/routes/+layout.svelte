@@ -7,13 +7,12 @@
 	import '../app.css';
 
 	const {url,params} = $page;
-
-
 	//load func props
 	/**
 	 * @type {{ title: string; }}
 	 */
 	export let data;
+
 </script>
 
 <svelte:head>
@@ -42,7 +41,7 @@
 
 	 <!-- content here -->
 	 <div class="hudL-SM md:hudL-MD fixed px-20 text-gray-700 font-thin">
-		<LeftHUD />
+		<LeftHUD on:message={(e)=>{alert(e.detail.text)}} tabs={["metadata1","metadata2","metadata3","metadata4"]} />
 	</div>
 
 
