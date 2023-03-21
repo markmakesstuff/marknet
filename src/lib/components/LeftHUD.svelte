@@ -1,29 +1,29 @@
 <script>
-	import { createEventDispatcher } from "svelte";
-	// TODO: Props for dynamic tabs creation	
+	// @ts-nocheck
+
+	import { createEventDispatcher } from 'svelte';
+	// TODO: Props for dynamic tabs creation
 	/**
 	 * @type {String[]}
 	 */
-	 export let tabs;
+	export let tabs;
 
-	 const dispatch = createEventDispatcher();
-	 /**
+	const dispatch = createEventDispatcher();
+
+	/**
 	 * @param {string} tab
 	 */
-	 function left_hud_event( tab)  {
-		dispatch(
-			'message', 
-			{
-				text: tab
-			}
-		);
-	 }
+	function left_hud_event(tabName) {
+		dispatch('tabClicked', {
+			text: tabName
+		});
+	}
 </script>
 
 <div class="">
 	<div class="flex items-center justify-evenly space-x-10">
 		{#each tabs as tab}
-			 <span>
+			<span>
 				<button on:click={left_hud_event(tab)}>
 					{tab}
 				</button>

@@ -9,4 +9,3 @@
 	 */
 	export let data;
 </script>
-
