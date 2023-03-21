@@ -18,7 +18,11 @@ package
 
 ### 3D Assets ###
 ### Excluded for now for size considerations until finalized ###
-.glb
-.gltf
-.stl
-.obj
+*.glb
+*.gltf
+*.stl
+*.obj
+
+
+
+

@@ -1,9 +1,10 @@
 <script>
-	import { goto } from '$app/navigation';
-
 	// @ts-nocheck
-
+	import { goto } from '$app/navigation';
 	import SimpleCard from '$lib/components/SimpleCard.svelte';
+	
+	//TODO: Add Markdown Content Import
+
 </script>
 
 <SimpleCard>
