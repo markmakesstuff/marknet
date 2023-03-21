@@ -14,7 +14,7 @@
 	 */
 	export let data;
 
-	$model = 'm1'
+	$model = 'model1'
 
 </script>
 
@@ -49,6 +49,6 @@
 		on:tabClicked={(e) => {
 			$model = e.detail.text;
 		}}
-		tabs={['model1', 'model2', 'model3', 'model4']}
+		tabs={['model1', 'model2', 'model3', 'model4', 'null']}
 	/>
 </div>

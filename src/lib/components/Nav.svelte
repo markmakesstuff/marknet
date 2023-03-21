@@ -11,14 +11,14 @@
 	<div class="px-10 md:px-20 mx-auto">
 		<div class="flex justify-between">
 			<!-- Top Left Group -->
-			<div class="flex items-center space-x-4">
+			<div class="flex items-center space-x-4 ">
 				<!-- Logo -->
-				<div class="text-gray-800">
+				<div class="text-gray-800  hover:text-orange-600 text-xl">
 					<!-- Medium Screens and up -->
 					<a class="hidden md:flex items-center py-10 px-2" href="/#">
 						<!-- <DriftLogo logo_height_scale={0.3} logo_width_scale={0.3}/> -->
 						<svg
-							class="h-10 w-10 mr-2 stroke-orange-500"
+							class="h-12 w-12 mr-3 stroke-orange-500"
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							viewBox="0 0 24 24"
@@ -57,16 +57,16 @@
 				</div>
 
 				<!-- Primary Nav -->
-				<div class="hidden md:flex space-x-1 text-gray-800">
-					<a class="py-5 px-2 hover:text-orange-500" href="/me">me</a>
-					<a class="py-5 px-2 hover:text-orange-500" href="/archive">archive</a>
+				<div class="hidden md:flex space-x-1 text-gray-800 text-xl">
+					<a class="py-5 px-2 hover:text-orange-600" href="/me">me</a>
+					<a class="py-5 px-2 hover:text-orange-600" href="/archive">archive</a>
 				</div>
 			</div>
 
 			<!-- Secondary Nav (Top Right) -->
-			<div class="hidden md:flex items-center space-x-1 text-gray-800">
-				<a class="py-5 px-2 hover:text-orange-500" href="/contact">contact</a>
-				<a class="py-5 px-2 hover:text-orange-500" href="/test">test</a>
+			<div class="hidden md:flex items-center space-x-1 text-gray-800 text-xl">
+				<a class="py-5 px-2 hover:text-orange-600" href="/contact">contact</a>
+				<a class="py-5 px-2 hover:text-orange-600" href="/test">test</a>
 			</div>
 
 			<!-- Mobile -->

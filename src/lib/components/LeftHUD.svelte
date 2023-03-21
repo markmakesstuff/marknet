@@ -24,7 +24,7 @@
 	<div class="flex items-center justify-evenly space-x-10">
 		{#each tabs as tab}
 			<span>
-				<button on:click={left_hud_event(tab)}>
+				<button on:click={left_hud_event(tab)} class="hover:-translate-y-0.5 transition-transform text-xl">
 					{tab}
 				</button>
 			</span>
